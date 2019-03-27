@@ -30,7 +30,7 @@ $(document).ready(function(){
   oFReader.readAsDataURL(document.getElementById("Equipo_UploadFile").files[0]);
   var f = document.getElementById("Equipo_UploadFile").files[0];
   var fsize = f.size||f.fileSize;
-  if(fsize > 2000000)
+  if(fsize > 20000000)
   {
    alert("Image File Size is very big");
   }
