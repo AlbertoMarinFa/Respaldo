@@ -64,7 +64,7 @@ ConfiguracionEquipo_GetCartaResponsiva();
       $.post("EquiposRespaldo/PHP/GetCartaByEquipo.php", {idEquipo:Conertura_DatosEquipoEditar.idEquipo},
       function(response){
         if(response != 0){
-          $('#ConfiguracionEquipo_CartaResponsivaDIV').html("<div class='col-md-12 text-center'><a onclick=\"href = '" + response + "';\" data-sub-html='' class='fa fa-file' style='font-size: 40px;cursor: pointer;'></a></div>");
+          $('#ConfiguracionEquipo_CartaResponsivaDIV').html("<div class='col-md-12 text-center'><a target='_blank' onclick=\"href = '" + response + "';\" data-sub-html='' class='fa fa-file' style='font-size: 40px;cursor: pointer;'></a></div>");
         }
       });
   }
@@ -127,7 +127,7 @@ $(document).ready(function(){
   oFReader.readAsDataURL(document.getElementById("Equipo_UploadFile").files[0]);
   var f = document.getElementById("Equipo_UploadFile").files[0];
   var fsize = f.size||f.fileSize;
-  if(fsize > 2000000)
+  if(fsize > 20000000)
   {
    //alert("Image File Size is very big");
    Notificacion_error("Error", "El archivo es demaciado grande", "", "fa fa-times");
