@@ -8,8 +8,8 @@ equipo.Serie,
 caso.FechaInicio,
 caso.FechaFin,
 (CASE
-    WHEN IFNULL(caso.FechaFin,'') = '' THEN DATEDIFF(caso.FechaInicio, CAST(now() AS DATE))
-    WHEN IFNULL(caso.FechaFin,'') <> ''THEN DATEDIFF(caso.FechaFin, CAST(now() AS DATE))
+    WHEN IFNULL(caso.FechaFin,'') = '' THEN DATEDIFF(CAST(now() AS DATE), caso.FechaInicio)
+    WHEN IFNULL(caso.FechaFin,'') <> ''THEN DATEDIFF(CAST(now() AS DATE), caso.FechaFin)
 END ) dias,
 catestatuscaso.Estatus,
 catestatuscaso.CodEstatusCaso,
