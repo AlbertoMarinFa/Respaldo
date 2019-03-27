@@ -4,7 +4,7 @@
     <input type="button" class="btn btn-primary" value="Agregar Caso" id="Caso_AddNewCaso">
   </div>
   <div class="col-md-12 text-center">
-    <span class="text-primary" style="font-size: 30px;">Lista de Caso</span>
+    <span class="text-primary" style="font-size: 30px;"><font face="Comic Sans MS,arial,verdana">lista de casos</font></span>
   </div>
   <div id="Caso_div_Casolist" class="col-md-12">
 
@@ -21,9 +21,9 @@ function Caso_GetCaso() {
     $.post("Caso/PHP/Lista_Casos.php",{idEquipo:$.urlParam('idEquipo'), Serie:$.urlParam('Serie')},
     function(respuesta) {
         if (respuesta != '0') {
-            var _HTMLtemp = "<table class=\"table\">" +
+            var _HTMLtemp = "<table class=\"table table-hover\">" +
                 "<thead>" +
-                "<tr>" +
+                "<tr class='bg-primary'>" +
                 "<th scope=\"col\">Num. Caso</th>" +
                 "<th scope=\"col\">Serie</th>" +
                 "<th scope=\"col\">Fecha Inicio</th>" +

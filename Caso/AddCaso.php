@@ -40,12 +40,12 @@
     NumeroCaso: $("#Caso_NombreCaso").val()},
     function(response){
         if(response == 1){
-          Notificacion_ok("Exitoso", "Caso Guardado Correctamente","", "fa fa-ckeck");
+          Notificacion_ok("Exitoso", "Caso Guardado Correctamente","", "fa fa-check");
           Caso_GetCaso();
           General_CloseModal();
         }
         else if(response == 0){
-          Notificacion_warning("Caso Duplicado","se econtro caso duplicado","","fa fa-ckeck")
+          Notificacion_warning("Caso Duplicado","se econtro caso duplicado","","fa fa-check")
           $('#Caso_AddCaso_SaveCaso').removeAttr('disabled');
         }
         else{
