@@ -99,12 +99,12 @@ ConfiguracionEquipo_GetCartaResponsiva();
     },
     function(response){
       if(response == 1){
-        alert("Equipo actualizado correctamente");
+        Notificacion_ok("Éxito", "Equipo actualizado correctamente", "", "fa fa-check");
         Equipo_GetEquipo();
         General_CloseModal();
       }
       else{
-        alert("Error al actualizar equipo");
+        Notificacion_error("Error", "Error al actualizar equipo", "", "fa fa-times");
       }
     });
   }
@@ -129,7 +129,8 @@ $(document).ready(function(){
   var fsize = f.size||f.fileSize;
   if(fsize > 2000000)
   {
-   alert("Image File Size is very big");
+   //alert("Image File Size is very big");
+   Notificacion_error("Error", "El archivo es demaciado grande", "", "fa fa-times");
   }
   else
   {

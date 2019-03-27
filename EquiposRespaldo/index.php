@@ -104,4 +104,8 @@ function Equipo_RedireccionCasoEquipo(idEquipo, Serie){
   };
   window.location.href = '#!Caso?idEquipo=' + idEquipo + '&Serie=' + Serie;
 }
+
+function fncModalPartes(idEquipo){
+  
+}
 </script>

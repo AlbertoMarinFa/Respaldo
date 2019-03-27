@@ -28,13 +28,13 @@ if($rowcount != 0){
     $OnclicEstatus=$userRow1["EstatusEquipo"]==="Faltan Partes" ? "data-toggle='tooltip' title='Partes faltantes' onClick='fncModalPartes('".$userRow1["idEquipo"]."')' style='cursor:pointer;'" : ""; 
    echo "</tr>
   <td style='font-size: 13px'>".$count."</td>
-  <td style='font-size: 13px' data-toggle='tooltip' title='Ver Casos' onclick=\"Equipo_RedireccionCasoEquipo('".$userRow1["idEquipo"]."','".$userRow1["Serie"]."')\">".$userRow1["Serie"]."</td>
+  <td style='font-size: 13px' onclick=\"Equipo_RedireccionCasoEquipo('".$userRow1["idEquipo"]."','".$userRow1["Serie"]."')\"><span data-toggle='tooltip' title='Ver Casos'>".$userRow1["Serie"]."</span></td>
   <td style='font-size: 13px'>".$userRow1["Contacto"]."</td>
   <td style='font-size: 13px'>".$userRow1["Numero"]."</td>
   <td style='font-size: 13px'>".$userRow1["isDisponible"]."</td>
   <td style='font-size: 13px'>".$userRow1["modelo"]."</td>
   <td style='font-size: 13px'>".$userRow1["cuenta"]."</td>
-  <td style='font-size: 13px' ".$OnclicEstatus.">".$userRow1["EstatusEquipo"]."</td>
+  <td style='font-size: 13px'><span ".$OnclicEstatus.">".$userRow1["EstatusEquipo"]."</span></td>
   <td style='font-size: 13px'>".$userRow1["AESNombre"]."</td>
   <td style='font-size: 13px'>".$userRow1["Estado"]."</td>
   <td style='font-size: 13px'>".$userRow1["Municipio"]."</td>

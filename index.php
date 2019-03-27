@@ -18,6 +18,12 @@
     <script src="JS/confirm/jquery_confirm.js"></script>
     <script src="JS/angular/angular.min.js"></script>
     <script src="JS/angular/angular-route.min.js"></script>
+
+    <link rel="stylesheet" href="CSS/amaran/amaran.css" />
+    <link rel="stylesheet" href="CSS/amaran/animate.css" />
+    <script src="JS/amaran/amaran.js"></script>
+    <script src="JS/amaran/acciones.js?"></script>
+
 </head>
 <body ng-app='mainController'  id="page-top" class="bodywhite element-demo">
     <!-- Page Wrapper -->
