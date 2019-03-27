@@ -40,16 +40,16 @@
     NumeroCaso: $("#Caso_NombreCaso").val()},
     function(response){
         if(response == 1){
-          alert("Caso dado de alta correctamente");
+          Notificacion_ok("Exitoso", "Caso Guardado Correctamente","", "fa fa-ckeck");
           Caso_GetCaso();
           General_CloseModal();
         }
         else if(response == 0){
-          alert("ya existe un Caso con este nombre");
+          Notificacion_warning("Caso Duplicado","se econtro caso duplicado","","fa fa-ckeck")
           $('#Caso_AddCaso_SaveCaso').removeAttr('disabled');
         }
         else{
-          alert("Error al registrar Caso");
+          Notificacion_error("Error", "no se guardo correctamente", "","fa fa-ckeck" );
           $('#Caso_AddCaso_SaveCaso').removeAttr('disabled');
         }
     });

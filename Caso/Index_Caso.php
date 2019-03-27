@@ -71,11 +71,12 @@ function Caso_CerrarCasoPost(idCaso){
   $.post("Caso/PHP/Caso_CerrarCaso.php", {idCaso:idCaso},
   function(response){
       if(response == 1){
-        $.alert('Caso cerrado correctamente');
+      
+        Notificacion_ok("Exitoso", "Caso Cerrado Correctamente","", "fa fa-ckeck");
         Caso_GetCaso();
       }
       else{
-        $.alert('Error al eliminar Caso');
+        Notificacion_error("Error", "no se guardo correctamente", "","fa fa-ckeck" );
       }
   });
 }
