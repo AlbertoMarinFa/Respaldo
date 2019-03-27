@@ -17,8 +17,7 @@ $resultadoSelect = $DBcon->query("SELECT * from equipo
   and idEstado = $idEstado
   and idMunicipio = $idMunicipio
   and idAES = $idAES
-  and idCuenta = $idCuenta
-  and idEstadoEquipo = $idEstadoEquipo;") or die (mysqli_error());
+  and idCuenta = $idCuenta;") or die (mysqli_error());
 
 if(mysqli_num_rows($resultadoSelect)==0)
 {
