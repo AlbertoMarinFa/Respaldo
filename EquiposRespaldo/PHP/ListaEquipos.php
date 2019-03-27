@@ -10,6 +10,7 @@ END ) isDisponible,
 modelo.Descripcion modelo,
 cuenta.NombreCuenta cuenta,
 catestadoequipo.Descripcion EstatusEquipo,
+catestadoequipo.idEstadoEquipo,
 aes.Nombre AESNombre,
 estados.Estado,
 municipios.Municipio,
@@ -24,8 +25,8 @@ inner join catestadoequipo on catestadoequipo.idEstadoEquipo = equipo.idEstadoEq
 $rowcount = mysqli_num_rows($query1);
 if($rowcount != 0){
   $count = 1;
-  while ($userRow1 = $query1->fetch_assoc()) {
-    $OnclicEstatus=$userRow1["EstatusEquipo"]==="Faltan Partes" ? "data-toggle='tooltip' title='Partes faltantes' onClick='fncModalPartes('".$userRow1["idEquipo"]."')' style='cursor:pointer;'" : ""; 
+  while ($userRow1 = $query1->fetch_assoc()) {    
+    $OnclicEstatus=$userRow1["idEstadoEquipo"]== 3 ? "data-toggle='tooltip' title='Partes faltantes' onclick=\"fncModalPartes('".$userRow1["idEquipo"]."')\" style='cursor:pointer;'" : "";
    echo "</tr>
   <td style='font-size: 13px'>".$count."</td>
   <td style='font-size: 13px' onclick=\"Equipo_RedireccionCasoEquipo('".$userRow1["idEquipo"]."','".$userRow1["Serie"]."')\"><span data-toggle='tooltip' title='Ver Casos'>".$userRow1["Serie"]."</span></td>
@@ -38,7 +39,7 @@ if($rowcount != 0){
   <td style='font-size: 13px'>".$userRow1["AESNombre"]."</td>
   <td style='font-size: 13px'>".$userRow1["Estado"]."</td>
   <td style='font-size: 13px'>".$userRow1["Municipio"]."</td>
-  <td style='font-size: 13px'><i data-toggle='tooltip' title='Modificar Equipo' onclick=\"Equipo_ConfigurarEquipo('".$userRow1["idEquipo"]."','".$userRow1["Serie"]."')\" class='fa fa-cog' style='cursor:pointer;'></i></td>    
+  <td style='font-size: 13px'><i data-toggle='tooltip' title='Modificar Equipo' onclick=\"Equipo_ConfigurarEquipo('".$userRow1["idEquipo"]."','".$userRow1["Serie"]."')\" class='fa fa-cog' style='cursor:pointer;'></i></td>
   </tr>";
   $count++;
   }

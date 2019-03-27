@@ -106,6 +106,9 @@ function Equipo_RedireccionCasoEquipo(idEquipo, Serie){
 }
 
 function fncModalPartes(idEquipo){
-  
+  Conertura_DatosEquipoEditar = {
+    idEquipo: idEquipo
+  };
+  General_OpenModalGeneral("Agregar archivo", "EquiposRespaldo/ConfigurarParteEquipo.php");
 }
 </script>
