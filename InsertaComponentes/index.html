@@ -1,0 +1,88 @@
+<style>
+.col-md-6{
+    margin-bottom: 10px;
+}
+</style>
+
+<div class="container-fluid">
+    <h1 class="text-primary text-center" style="font-size: 30px;">Componentes de Equipos</h1>
+    <div class="col-md-6">
+      <div class="col-md-3">
+          <input type="button" style='margin-bottom: 1px;' id="Componentes_KIT" class="form-control btn btn-primary" value="KIT" />
+      </div>
+      <div class="col-md-3">
+          <input type="button" style='margin-bottom: 1px;' id="Componentes_Modelo" class="form-control btn btn-primary" value="Modelo" />
+      </div>
+      <div class="col-md-6">
+          <input type="button" style='margin-bottom: 1px;' id="Componentes_Cuenta" class="form-control btn btn-primary" value="Cuenta" />
+      </div>
+      <div class="col-md-6">
+          <input type="button" style='margin-bottom: 1px;' id="Componentes_Documento" class="form-control btn btn-primary" value="Documento" />
+      </div>
+    </div>
+    <h1 class="text-primary text-center" style="font-size: 30px;">Componentes de AES</h1>
+    <div class="col-md-12">
+      <div class="col-md-6">
+          <input type="button" style='margin-bottom: 1px;' id="Componentes_Cobertura" class="form-control btn btn-primary" value="Cobertura" />
+      </div>
+      <div class="col-md-6">
+          <input type="button" style='margin-bottom: 1px;' id="Componentes_AES" class="form-control btn btn-primary" value="AES" />
+      </div>
+    </div>
+</div>
+
+<script>
+//EnrutadoGeneral
+  $('#Componentes_KIT').click(function(){
+    window.location.href = '#!Componentes/Equipo/KIT';
+  });
+
+  $('#Componentes_Modelo').click(function(){
+    window.location.href = '#!Componentes/Equipo/Modelo';
+  });
+
+  $('#Componentes_Cuenta').click(function(){
+    window.location.href = '#!Componentes/Equipo/Cuenta';
+  });
+
+  $('#Componentes_Documento').click(function(){
+    window.location.href = '#!Componentes/Equipo/Documento';
+  });
+
+  $('#Componentes_Cobertura').click(function(){
+    window.location.href = '#!Componentes/AES/Cobertura';
+  });
+
+  $('#Componentes_AES').click(function(){
+    window.location.href = '#!Componentes/AES/AES';
+  });
+
+/*
+    $('#Componentes_AddNewModelo').click(function(){
+        General_OpenModalGeneral("Agregar nuevo modelo", "InsertaComponentes/Componentes_AddNewModelo.php");
+    });
+
+    $('#Componentes_AddNewAES').click(function(){
+        General_OpenModalGeneral("Agregar nuevo AES", "InsertaComponentes/Componentes_AddNewAES.php");
+    });
+
+    $('#Componentes_AddNewContacto').click(function(){
+        General_OpenModalGeneral("Agregar nuevo Contacto", "InsertaComponentes/Componentes_AddNewContacto.php");
+    });
+
+    $('#Componentes_AddNewCuenta').click(function(){
+        General_OpenModalGeneral("Agregar nueva cuenta", "InsertaComponentes/Componentes_AddNewCuenta.php");
+    });
+
+    $('#Componentes_AddNewEquipo').click(function(){
+        General_OpenModalGeneral("Agregar nuevo equipo", "InsertaComponentes/Componentes_AddNewEquipo.php");
+    });
+
+    $('#historial_equipo').click(function(){
+        General_OpenModalGeneral("Agregar nuevo historial", "InsertaComponentes/historial_equipo.php");
+    });
+
+    $('#Componentes_AddNewContactoEstado').click(function(){
+        General_OpenModalGeneral("Agregar nuevo contacto con estado", "InsertaComponentes/Componentes_AddNewContactoEstado.php");
+    });*/
+</script>

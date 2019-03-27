@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      Nombre Kit
+      <input type="text"class="form-control" id="Kit_NombreKit">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <input type="button" class="btn btn-primary" id="KIT_AddKit_SaveKit" value="Guardar">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('#KIT_AddKit_SaveKit').click(function(){
+      $('#KIT_AddKit_SaveKit').attr('disabled','disabled');
+      KIT_AddNewKit();
+    });
+  });
+
+  function KIT_AddNewKit(){
+    $.post("InsertaComponentes/KIT/PHP/AddNewKit.php", {NombreKit:$("#Kit_NombreKit").val()},
+    function(response){
+        if(response == 1){
+          alert("Kit dado de alta correctamente");
+          KIT_GetKITS();
+          General_CloseModal();
+        }
+        else if(response == 0){
+          alert("ya existe un Kit con este nombre");
+          $('#KIT_AddKit_SaveKit').removeAttr('disabled');
+        }
+        else{
+          alert("Error al registrar Kit");
+          $('#KIT_AddKit_SaveKit').removeAttr('disabled');
+        }
+    });
+  }
+</script>
