@@ -21,6 +21,9 @@ app.config(function($routeProvider) {
     .when("/Componentes/Equipo/Documento", {
         templateUrl : "InsertaComponentes/Documento/index_Documento.php"
     })
+    .when("/Componentes/Equipo/Parte", {
+        templateUrl : "InsertaComponentes/Parte/index_Parte.php"
+    })
     .when("/Componentes/AES/Cobertura", {
         templateUrl : "InsertaComponentes/Cobertura/index_Cobertura.php"
     })
