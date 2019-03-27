@@ -21,6 +21,7 @@ $(document).ready(function(){
   if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) == -1)
   {
    alert("Invalid Image File");
+   Notificacion_error("Error", "Imagen Invalida", Informacion, iconFont)
   }
 
   File.name = CreateGuid() + '.' + ext;
