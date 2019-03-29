@@ -24,7 +24,7 @@ if($_FILES["file"]["name"] != '')
  $ext = end($test);
  $name = $Guid_ArchivoCarga . '.' . $ext;
  $Guid_ArchivoCarga =  $Guid_ArchivoCarga . '.' . $ext;
- $location = $_SERVER['DOCUMENT_ROOT'].'/Respaldo/Archivos/CartaResponsiva/' . $name;
+ $location = $_SERVER['DOCUMENT_ROOT'].'/Respaldo/Archivos/ArchivosCaso/' . $name;
  move_uploaded_file($_FILES["file"]["tmp_name"], $location);
 echo $Guid_ArchivoCarga;
 }
