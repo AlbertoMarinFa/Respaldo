@@ -49,7 +49,7 @@
           $('#Caso_AddCaso_SaveCaso').removeAttr('disabled');
         }
         else{
-          Notificacion_error("Error", "no se guardo correctamente", "","fa fa-ckeck" );
+          Notificacion_error("Error", "no se guardo correctamente", "","fa fa-times" );
           $('#Caso_AddCaso_SaveCaso').removeAttr('disabled');
         }
     });

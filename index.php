@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="es-mx" xmlns="http://www.w3.org/1999/xhtml" class="element-demo">
+<html lang="es-mx" xmlns="http://www.w3.org/1999/xhtml" class="element-demo" style='width: 100% !important;'>
 <head runat="server">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
@@ -26,8 +26,33 @@
 
 </head>
 <body ng-app='mainController'  id="page-top" class="bodywhite element-demo">
+    <div id="frmloginSesion" style='background-image: url("img/nueva.jpg");background-position: center right;background-repeat: no-repeat;background-size: cover;position: fixed;top: 0px;bottom: 0px;width: 100%;height: 100%;'>
+        <div class='row' style='width: 100% !important;'>
+            <div class="col-md-4 col-md-offset-4" style='margin-top:100px;'>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form id="loginForm" >
+							<legend>Iniciar sesión</legend>
+
+							<div class="form-group" id="frmHP_divErrorUser">
+								<label for="usuario">Usuario</label>
+								<input type="text" name="txtUsuario" class="form-control" id="usuario" autofocus required placeholder="usuario">
+							</div>
+
+							<div class="form-group" id=frmHP_divErrorPass>
+								<label for="password">Password</label>
+								<input type="password" name="txtPassword" class="form-control" required id="password" placeholder="****">
+							</div>
+
+							<button type="button" class="btn btn-success pull-right" style='background:#1b4b95 !important;' onclick='fnLoginPH();' id='frmPHLogin_OK'>Ingresar</button>
+						</form>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" style='display:none;'>
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->

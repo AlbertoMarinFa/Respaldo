@@ -2,7 +2,34 @@ $.urlParam = function (name) { var results = new RegExp('[\?&]' + name + '=([^&#
 
 $(document).ready(function(){
   //$('#ContenedorGeneral').load("EquiposRespaldo/index.php");
+  
 });
+
+function fnLoginPH(){
+  var _ValorUser=$("#usuario").val();
+  var _ValorContra=$("#password").val();
+  var _CountErrores=0;
+  if($("#usuario").val() == ""){
+    $("#frmHP_divErrorUser").addClass("has-error");
+    $("#usuario").keypress(function(){
+      $("#frmHP_divErrorUser").removeClass("has-error");
+    });
+    _CountErrores++;
+  }
+  if($("#password").val() == ""){
+    $("#frmHP_divErrorPass").addClass("has-error");
+    $("#password").keypress(function(){
+      $("#frmHP_divErrorPass").removeClass("has-error");
+    });
+    _CountErrores++;
+  }
+  if(_CountErrores==0){
+    $("#frmloginSesion").hide(500);
+    $("#wrapper").show(500);
+  }else{
+    Notificacion_error("Error", "Llenar los datos faltantes", "","fa fa-times" );
+  }
+}
 
 $('#Menu_EquipoRespaldo').click(function(){
     window.location.href = '#!';
