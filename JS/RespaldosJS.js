@@ -1,8 +1,16 @@
 $.urlParam = function (name) { var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href); if (results == null) { return null; } else { return results[1] || 0; } }
-
+var TokenInicio ="";
 $(document).ready(function(){
   //$('#ContenedorGeneral').load("EquiposRespaldo/index.php");
-  
+  TokenInicio = localStorage.getItem("TokenInicio");
+  if(!TokenInicio){
+    $("#frmloginSesion").show();
+    $("#wrapper").hide();
+  }else{
+    $("#wrapper").show();
+    $("#frmloginSesion").hide();
+    $("#divUserNamespan").text(TokenInicio);
+  }
 });
 
 function fnLoginPH(){
@@ -24,8 +32,22 @@ function fnLoginPH(){
     _CountErrores++;
   }
   if(_CountErrores==0){
-    $("#frmloginSesion").hide(500);
-    $("#wrapper").show(500);
+    $.post("login/inicioseccion.php",
+    {Usuario: $("#usuario").val(),
+    Pass: $("#password").val()},
+    function(response){
+        if(response == 1){
+          localStorage.setItem("TokenInicio", $("#usuario").val());
+          $("#frmloginSesion").hide(500);
+          $("#wrapper").show(500);
+          $("#usuario").val("");
+          $("#password").val("");
+          $("#divUserNamespan").text(localStorage.getItem("TokenInicio"));
+        }
+        else{
+          Notificacion_error("Error", "" + response, "","fa fa-times" );
+        }
+    });
   }else{
     Notificacion_error("Error", "Llenar los datos faltantes", "","fa fa-times" );
   }
@@ -55,4 +77,10 @@ function CreateGuid() {
       return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
    }
    return _p8() + _p8(true) + _p8(true) + _p8();
+}
+
+
+function fncLogout(){
+  localStorage.removeItem("TokenInicio");
+  location.reload();
 }
