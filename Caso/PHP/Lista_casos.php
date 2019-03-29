@@ -31,16 +31,6 @@ if($rowcount != 0){
     else{
       $casotexto = "<td>Cerrado</td>";
     }
-   /*echo '</tr>
-  <td style="font-size: 13px">'.$count.'</td>
-  <td style="font-size: 13px">'.$userRow1["Serie"].'</td>
-  <td style="font-size: 13px">'.$userRow1["FechaInicio"].'</td>
-  <td style="font-size: 13px">'.$userRow1["FechaFin"].'</td>
-  <td style="font-size: 13px">'.$userRow1["dias"].'</td>
-  <td style="font-size: 13px">'.$userRow1["Estatus"].'</td>
-  <td style="font-size: 13px">'.$userRow1["NumeroCaso"].'</td>
-  <td style="font-size: 13px"><i onclick=\'Caso_CerrarCaso('.$userRow1["idCaso"].')\' class="fa fa-cog" style="cursor:pointer;"></i></td>
-  '.$casotexto.'*/
   echo '</tr>
   <td style="font-size: 13px">'.$count.'</td>
   <td style="font-size: 13px">'.$userRow1["Serie"].'</td>
@@ -48,7 +38,7 @@ if($rowcount != 0){
   <td style="font-size: 13px">'.$userRow1["FechaFin"].'</td>
   <td style="font-size: 13px">'.$userRow1["dias"].'</td>
   <td style="font-size: 13px">'.$userRow1["Estatus"].'</td>
-  <td style="font-size: 13px">'.$userRow1["NumeroCaso"].'</td>
+  <td style="font-size: 13px"><span data-toggle="tooltip" title="Agregar archivo" onclick=\'Caso_UploadFileToCaso('.$userRow1["idCaso"].')\' style="cursor:pointer;">'.$userRow1["NumeroCaso"].'</span></td>
   '.$casotexto.'
   </tr>';
 

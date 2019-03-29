@@ -71,7 +71,7 @@ function Caso_CerrarCasoPost(idCaso){
   $.post("Caso/PHP/Caso_CerrarCaso.php", {idCaso:idCaso},
   function(response){
       if(response == 1){
-      
+
         Notificacion_ok("Exitoso", "Caso Cerrado Correctamente","", "fa fa-ckeck");
         Caso_GetCaso();
       }
@@ -90,5 +90,12 @@ function Caso_ConfigurarCaso(idCaso, Nombre){
 
   General_OpenModalGeneral("Agregar Caso", "InsertaComponentes/Caso/ConfiguracionCobertira.php");
 
+}
+
+function Caso_UploadFileToCaso(idCaso){
+  Conertura_DatosCasoEditar = {
+    idCaso: idCaso    
+  };
+  General_OpenModalGeneral("Agregar Caso", "Caso/AddFileToCaso.php");
 }
 </script>
