@@ -4,7 +4,7 @@
       Parte
       <select class="form-control" id="Parte_AddNewParte">
         <?php
-            include $_SERVER['DOCUMENT_ROOT'].'/RSP/PHP/Connection/dbconnect.php';
+            include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
             $query1 = $DBcon->query("SELECT idPartes, DescripcionParte from catpartes;;");
             echo'<option value="0">SELECCIONA UNA OPCIÓN</option>';
             while ($userRow2 = $query1->fetch_assoc()) {

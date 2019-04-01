@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/RSP/PHP/Connection/dbconnect.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
 $idEquipo = $_POST['idEquipo'];
 $Contacto = $_POST['Contacto'];
 $Numero = $_POST['Numero'];

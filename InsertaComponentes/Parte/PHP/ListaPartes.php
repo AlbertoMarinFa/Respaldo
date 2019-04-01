@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'].'/RSP/PHP/Connection/dbconnect.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
 $query1 = $DBcon->query("SELECT idPartes, DescripcionParte from catpartes;");
 $rowcount = mysqli_num_rows($query1);
 if($rowcount != 0){

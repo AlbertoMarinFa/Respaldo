@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'].'/RSP/PHP/Connection/dbconnect.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
 $query1 = $DBcon->query("SELECT Serie,
   IFNULL(equipo.Contacto,'')Contacto ,IFNULL(equipo.Numero,'')Numero,
 (CASE

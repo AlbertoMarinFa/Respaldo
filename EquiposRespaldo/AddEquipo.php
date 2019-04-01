@@ -24,7 +24,7 @@
       Modelo Equipo
       <select class="form-control" id="Equipo_ModeloEquipo">
         <?php
-            include $_SERVER['DOCUMENT_ROOT'].'/RSP/PHP/Connection/dbconnect.php';
+            include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
             $query1 = $DBcon->query("SELECT idModelo,Descripcion Modelo from modelo;");
             echo'<option value="0">SELECCIONA UNA OPCIÓN</option>';
             while ($userRow2 = $query1->fetch_assoc()) {

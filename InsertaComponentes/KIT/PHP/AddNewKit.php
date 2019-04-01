@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/RSP/PHP/Connection/dbconnect.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
 $NombreKit = $_POST['NombreKit'];
 $resultadoSelect = $DBcon->query("SELECT * FROM cattipokit where Descripcion = '$NombreKit';");
 if(mysqli_num_rows($resultadoSelect)==0)

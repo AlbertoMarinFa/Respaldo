@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/RSP/PHP/Connection/dbconnect.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
 $idTipoKit = $_POST['idTipoKit'];
 
 $resultadoSelect = $DBcon->query("DELETE FROM cattipokit where idtipokit = '$idTipoKit';") or die (mysqli_error());

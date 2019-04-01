@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/RSP/PHP/Connection/dbconnect.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
 $Nombre = $_POST['NombreCobertura'];
 $resultadoSelect = $DBcon->query("SELECT * FROM cobertura where Nombre = '$Nombre';");
 if(mysqli_num_rows($resultadoSelect)==0)
