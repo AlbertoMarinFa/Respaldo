@@ -1,5 +1,4 @@
 <?php
-
 include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
 $query1 = $DBcon->query("SELECT Serie,
   IFNULL(equipo.Contacto,'')Contacto ,IFNULL(equipo.Numero,'')Numero,
@@ -37,7 +36,7 @@ if($rowcount != 0){
   <td style='font-size: 13px'>".$userRow1["cuenta"]."</td>
   <td style='font-size: 13px'><span ".$OnclicEstatus.">".$userRow1["EstatusEquipo"]."</span></td>
   <td style='font-size: 13px'>".$userRow1["AESNombre"]."</td>
-  <td style='font-size: 13px'>".$userRow1["Estado"]."</td>
+  <td style='font-size: 13px'>".utf8_encode($userRow1["Estado"])."</td>
   <td style='font-size: 13px'>".$userRow1["Municipio"]."</td>
   <td style='font-size: 13px'><i data-toggle='tooltip' title='Modificar Equipo' onclick=\"Equipo_ConfigurarEquipo('".$userRow1["idEquipo"]."','".$userRow1["Serie"]."')\" class='fa fa-cog' style='cursor:pointer;'></i></td>
   </tr>";
