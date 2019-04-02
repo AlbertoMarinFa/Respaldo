@@ -1,8 +1,8 @@
-var Session_Userid = null;
+var Session_Userid = null,Session_Codtipousuario = null;
 $.urlParam = function (name) { var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href); if (results == null) { return null; } else { return results[1] || 0; } }
 var TokenInicio ="";
+
 $(document).ready(function(){
-  //$('#ContenedorGeneral').load("EquiposRespaldo/index.php");
   TokenInicio = localStorage.getItem("TokenInicio");
   if(!TokenInicio){
     $("#frmloginSesion").show();
@@ -15,7 +15,10 @@ $(document).ready(function(){
     $.post("PHP/GetDatoSession.php",
     {Usuario: localStorage.getItem("TokenInicio")},
     function(response){
-      Session_Userid = response;
+      var obj = JSON.parse(response);
+      datosrespuesta = obj;
+      Session_Userid = datosrespuesta.idUsuario;
+      Session_Codtipousuario = datosrespuesta.codTipoUsuario;
     });
   }
 });
@@ -54,7 +57,10 @@ function fnLoginPH(){
           $.post("PHP/GetDatoSession.php",
           {Usuario: localStorage.getItem("TokenInicio")},
           function(response){
-            Session_Userid = response;
+            var obj = JSON.parse(response);
+            datosrespuesta = obj;
+            Session_Userid = datosrespuesta.idUsuario;
+            Session_Codtipousuario = datosrespuesta.codTipoUsuario;
           });
 
         }
