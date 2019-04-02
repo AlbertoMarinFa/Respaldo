@@ -9,7 +9,7 @@ caso.FechaInicio,
 caso.FechaFin,
 (CASE
     WHEN IFNULL(caso.FechaFin,'') = '' THEN DATEDIFF(CAST(now() AS DATE), caso.FechaInicio)
-    WHEN IFNULL(caso.FechaFin,'') <> ''THEN DATEDIFF(CAST(now() AS DATE), caso.FechaFin)
+    WHEN IFNULL(caso.FechaFin,'') <> ''THEN DATEDIFF(caso.FechaInicio, caso.FechaFin)
 END ) dias,
 catestatuscaso.Estatus,
 catestatuscaso.CodEstatusCaso,
@@ -40,6 +40,7 @@ if($rowcount != 0){
   <td style="font-size: 13px">'.$userRow1["Estatus"].'</td>
   <td style="font-size: 13px"><span data-toggle="tooltip" title="Agregar archivo" onclick=\'Caso_UploadFileToCaso('.$userRow1["idCaso"].')\' style="cursor:pointer;">'.$userRow1["NumeroCaso"].'</span></td>
   '.$casotexto.'
+  <td style="font-size: 13px"><i data-toggle="tooltip" title="Agregar/Ver nota" onclick=\'Caso_AddViewNotas('.$userRow1["idCaso"].')\' class="fa fa-eye" style="cursor:pointer;"></i></td>
   </tr>';
 
   $count++;
