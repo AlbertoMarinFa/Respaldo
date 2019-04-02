@@ -20,9 +20,9 @@ $('#Componetes_Apartado_Equipo').click(function(){
 function Equipo_GetEquipo() {
     $.get("EquiposRespaldo/PHP/ListaEquipos.php", function(respuesta) {
         if (respuesta != '0') {
-            var _HTMLtemp = "<table class=\"table\">" +
+            var _HTMLtemp = "<table class=\"table table-hover\">" +
                 "<thead>" +
-                "<tr>" +
+                "<tr class='bg-primary'>" +
                 "<th scope=\"col\">No. Equipo</th>" +
                 "<th scope=\"col\">Serie</th>" +
                 "<th scope=\"col\">Contacto</th>" +
@@ -34,6 +34,7 @@ function Equipo_GetEquipo() {
                 "<th scope=\"col\">AES</th>" +
                 "<th scope=\"col\">Estado</th>" +
                 "<th scope=\"col\">Municipio</th>" +
+                "<th scope=\"col\">Modificar</th>" +
                 "</tr>" +
                 "</thead>" +
                 "<tbody>" +
