@@ -29,22 +29,27 @@
   });
 
   function Nota_AddNewNota(){
-    $.post("Caso/PHP/AddNewNota.php",
-    {Descrpcion: $('#Nota_NotaForCaso').val(),
-    idCaso: Conertura_DatosCasoEditar.idCaso,
-    idUsuario: Session_Userid},
-    function(response){
-        if(response == 1){
-          Notificacion_ok("Exitoso", "Caso Guardado Correctamente","", "fa fa-check");
-          Notas_GetAllNotasByCaso();
-          $('#Nota_NotaForCaso').val('')
-          $('#Nota_SaveComentarioForCaso').removeAttr('disabled');
-        }
-        else{
-          Notificacion_error("Error", "no se guardo correctamente", "","fa fa-times" );
-          $('#Caso_AddCaso_SaveCaso').removeAttr('disabled');
-        }
-    });
+    if($('#Nota_NotaForCaso').val() != ''){
+      $.post("Caso/PHP/AddNewNota.php",
+      {Descrpcion: $('#Nota_NotaForCaso').val(),
+      idCaso: Conertura_DatosCasoEditar.idCaso,
+      idUsuario: Session_Userid},
+      function(response){
+          if(response == 1){
+            Notificacion_ok("Exitoso", "Caso Guardado Correctamente","", "fa fa-check");
+            Notas_GetAllNotasByCaso();
+            $('#Nota_NotaForCaso').val('')
+            $('#Nota_SaveComentarioForCaso').removeAttr('disabled');
+          }
+          else{
+            Notificacion_error("Error", "no se guardo correctamente", "","fa fa-times" );
+            $('#Caso_AddCaso_SaveCaso').removeAttr('disabled');
+          }
+      });
+    }
+    else{
+      Notificacion_error("Error", "agrega contenido a la nota", "","fa fa-times" );
+    }
   }
 
   function Notas_GetAllNotasByCaso(){
@@ -55,7 +60,6 @@
           var _HTMLtemp = "<table class=\"table table-hover\">" +
               "<thead>" +
               "<tr class='bg-primary'>" +
-              "<th scope=\"col\">Num. Comentario</th>" +
               "<th scope=\"col\">Comentario</th>" +
               "<th scope=\"col\">Usuario</th>" +
               "<th scope=\"col\">Fecha insercion</th>" +

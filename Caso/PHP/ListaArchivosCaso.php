@@ -8,10 +8,10 @@ Descripcion,
 idEquipo,
 idTipoDocumento,
 idCaso,
-FechaInsert,
+DATE_FORMAT(FechaInsert, '%m/%d/%Y %H:%i')FechaInsert,
 Comentario
 FROM documentos where idEquipo = $idEquipo
-AND idCaso = $idCaso;") or die (mysqli_error());
+AND idCaso = $idCaso order by FechaInsert desc;") or die (mysqli_error());
 
 $rowcount = mysqli_num_rows($query1);
 

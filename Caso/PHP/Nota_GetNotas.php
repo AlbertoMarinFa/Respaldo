@@ -2,11 +2,11 @@
 include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
 $idCaso = $_POST['idCaso'];
 
-$query1 = $DBcon->query("SELECT comentarios.idComentarios,usuario.Nombre,comentarios.Descrpcion,comentarios.FechaInsert
+$query1 = $DBcon->query("SELECT comentarios.idComentarios,usuario.Nombre,comentarios.Descrpcion, DATE_FORMAT(comentarios.FechaInsert, '%m/%d/%Y %H:%i')FechaInsert
 from comentarios
 inner join caso on caso.idCaso = comentarios.idCaso
 inner join usuario on usuario.idUsuario = comentarios.idUsuario
-where comentarios.idCaso = $idCaso;") or die (mysqli_error());
+where comentarios.idCaso = $idCaso order by comentarios.FechaInsert desc;") or die (mysqli_error());
 
 $rowcount = mysqli_num_rows($query1);
 
@@ -14,7 +14,6 @@ if($rowcount != 0){
   $count = 1;
   while ($userRow1 = $query1->fetch_assoc()) {
   echo '</tr>
-  <td style="font-size: 13px">'.$count.'</td>
   <td style="font-size: 13px">'.$userRow1["Descrpcion"].'</td>
   <td style="font-size: 13px">'.$userRow1["Nombre"].'</td>
   <td style="font-size: 13px">'.$userRow1["FechaInsert"].'</td>

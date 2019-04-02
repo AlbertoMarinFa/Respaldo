@@ -5,8 +5,8 @@ $Serie = $_POST['Serie'];
 
 $query1 = $DBcon->query("SELECT caso.idCaso,
 equipo.Serie,
-caso.FechaInicio,
-caso.FechaFin,
+DATE_FORMAT(caso.FechaInicio, '%m/%d/%Y %H:%i')FechaInicio,
+DATE_FORMAT(caso.FechaFin, '%m/%d/%Y %H:%i')FechaFin,
 (CASE
     WHEN IFNULL(caso.FechaFin,'') = '' THEN DATEDIFF(CAST(now() AS DATE), caso.FechaInicio)
     WHEN IFNULL(caso.FechaFin,'') <> ''THEN DATEDIFF(caso.FechaInicio, caso.FechaFin)
@@ -17,7 +17,7 @@ caso.NumeroCaso
 from caso
 INNER JOIN equipo on equipo.idEquipo = caso.idEquipo
 inner join catestatuscaso on catestatuscaso.CodEstatusCaso = caso.CodEstatusCaso
-      where equipo.idEquipo = $idEquipo and equipo.Serie = '$Serie';") or die (mysqli_error());
+      where equipo.idEquipo = $idEquipo and equipo.Serie = '$Serie' order by caso.FechaInicio desc;") or die (mysqli_error());
 
 $rowcount = mysqli_num_rows($query1);
 
