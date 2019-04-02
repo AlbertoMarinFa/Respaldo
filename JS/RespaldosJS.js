@@ -1,3 +1,4 @@
+var Session_Userid = null;
 $.urlParam = function (name) { var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href); if (results == null) { return null; } else { return results[1] || 0; } }
 var TokenInicio ="";
 $(document).ready(function(){
@@ -10,6 +11,12 @@ $(document).ready(function(){
     $("#wrapper").show();
     $("#frmloginSesion").hide();
     $("#divUserNamespan").text(TokenInicio);
+
+    $.post("PHP/GetDatoSession.php",
+    {Usuario: localStorage.getItem("TokenInicio")},
+    function(response){
+      Session_Userid = response;
+    });
   }
 });
 
@@ -43,6 +50,13 @@ function fnLoginPH(){
           $("#usuario").val("");
           $("#password").val("");
           $("#divUserNamespan").text(localStorage.getItem("TokenInicio"));
+
+          $.post("PHP/GetDatoSession.php",
+          {Usuario: localStorage.getItem("TokenInicio")},
+          function(response){
+            Session_Userid = response;
+          });
+
         }
         else{
           Notificacion_error("Error", "" + response, "","fa fa-times" );

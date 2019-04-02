@@ -11,7 +11,7 @@ if(mysqli_num_rows($resultadoSelect)!=0)
     $resultadoSelectConsul = $DBcon->query("SELECT * from usuario
     WHERE Nombre = '$Usuario' and PassWord= '$Pass';") or die (mysqli_error());
     if(mysqli_num_rows($resultadoSelectConsul)!=0)
-    {
+    {      
         echo "1";
     }
     else{

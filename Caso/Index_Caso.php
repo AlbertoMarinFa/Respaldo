@@ -33,6 +33,7 @@ function Caso_GetCaso() {
                 "<th scope=\"col\">Numero Caso</th>" +
                 //"<th scope=\"col\">Configurar</th>" +
                 "<th scope=\"col\">Cerrar caso</th>" +
+                "<th scope=\"col\">Notas</th>" +
                 "</tr>" +
                 "</thead>" +
                 "<tbody>" +
@@ -94,8 +95,14 @@ function Caso_ConfigurarCaso(idCaso, Nombre){
 
 function Caso_UploadFileToCaso(idCaso){
   Conertura_DatosCasoEditar = {
-    idCaso: idCaso    
+    idCaso: idCaso
   };
-  General_OpenModalGeneral("Agregar Caso", "Caso/AddFileToCaso.php");
+  General_OpenModalGeneral("Subir/ver archivo", "Caso/AddFileToCaso.php");
+}
+
+function Caso_AddViewNotas(idCaso){
+  Conertura_DatosCasoEditar = {
+    idCaso: idCaso};
+    General_OpenModalGeneral("Notas", "Caso/Nota_AddViewNota.php");
 }
 </script>
