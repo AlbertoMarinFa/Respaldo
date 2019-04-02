@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-03-2019 a las 06:09:19
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.2
+-- Tiempo de generación: 02-04-2019 a las 06:18:07
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,7 +44,9 @@ CREATE TABLE `aes` (
 --
 
 INSERT INTO `aes` (`idAES`, `Nombre`, `contacto`, `Numero`, `idCobertura`) VALUES
-(2, 'AES MUEGANO', 'MUEGANO', '7221857896', 2);
+(3, 'Sigma ', 'Julieta Trujol', '55768127421', 2),
+(4, 'CIS', 'Paola Benitez', '455533344', 2),
+(5, 'Deltronica', 'Alejandro Carranza', '445532223', 2);
 
 -- --------------------------------------------------------
 
@@ -68,9 +70,7 @@ CREATE TABLE `caso` (
 --
 
 INSERT INTO `caso` (`idCaso`, `idEquipo`, `FechaInicio`, `FechaFin`, `dias`, `CodEstatusCaso`, `NumeroCaso`) VALUES
-(1, 1, '2019-03-25 22:48:01', '2019-03-25 23:12:43', NULL, 2, '6564518455'),
-(2, 2, '2019-03-24 22:26:01', '2019-03-28 23:05:38', NULL, 2, '23312312'),
-(3, 2, '2019-03-28 23:02:52', NULL, NULL, 1, '12121345');
+(8, 10, '2019-04-01 17:49:51', NULL, NULL, 1, '23456789');
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,10 @@ CREATE TABLE `catpartes` (
 --
 
 INSERT INTO `catpartes` (`idPartes`, `DescripcionParte`) VALUES
-(2, 'fusor');
+(2, 'fusor'),
+(3, 'kit de mantenimiento'),
+(4, 'bandeja 1'),
+(5, 'bandeja 2');
 
 -- --------------------------------------------------------
 
@@ -236,7 +239,11 @@ CREATE TABLE `cuenta` (
 --
 
 INSERT INTO `cuenta` (`idCuenta`, `NombreCuenta`) VALUES
-(2, 'cuenta muegano');
+(3, 'Home Depot'),
+(4, 'Chedraui'),
+(5, 'Valeo'),
+(6, 'Corning'),
+(7, 'hdi');
 
 -- --------------------------------------------------------
 
@@ -300,7 +307,25 @@ INSERT INTO `documentos` (`idDocumentos`, `Descripcion`, `idEquipo`, `idTipoDocu
 (11, '092E5718-B583-9E6E-F10B-762336379B4E.jpg', 3, 1, NULL, NULL, NULL),
 (12, 'EBE7618A-0EAC-5A4F-A549-80C7F75B38ED.pdf', 2, NULL, 2, '2019-03-28 22:57:56', 'comentario 1'),
 (13, 'A540DF42-20BA-A43D-3981-D1E174334133.pdf', 2, NULL, 2, '2019-03-28 23:02:28', 'comentario 2'),
-(14, '0F335C07-6542-0044-F3CF-87D2E6B374C9.pdf', 2, NULL, 3, '2019-03-28 23:05:26', 'comentario muegano');
+(14, '0F335C07-6542-0044-F3CF-87D2E6B374C9.pdf', 2, NULL, 3, '2019-03-28 23:05:26', 'comentario muegano'),
+(15, '6AD545B2-EF6C-0BB3-E302-348164E04CB0.xlsx', 1, NULL, 1, '2019-03-28 23:13:06', 'beto'),
+(16, 'D70957D4-39EB-E559-E6E0-AB454357524B.xlsx', 1, NULL, 1, '2019-03-28 23:13:11', 'beto'),
+(17, '1A31C2DA-AD0D-FB35-B460-EF8114E062E2.xlsx', 7, NULL, 4, '2019-03-29 00:06:20', 'hojas de configuracion'),
+(18, '6EA9DF59-4E24-9A4A-27FE-71EFCDFAC878.xlsx', 7, NULL, 4, '2019-03-29 00:06:26', 'hojas de configuracion'),
+(19, '0B58B26E-FFDE-E2A9-EC0F-E477481051EC.pdf', 8, 1, NULL, NULL, NULL),
+(20, '0B08EC4B-691D-671A-8B3B-7CFC83EB745E.docx', 9, NULL, 5, '2019-03-29 10:32:24', 'hojas de configuracion'),
+(21, '90F1CEB7-F2E8-F05E-3C76-395A3F14A1B2.pdf', 10, 1, NULL, NULL, NULL),
+(22, '6528574F-C337-09A7-7C78-A349B5797D8A.pdf', 10, NULL, 7, '2019-04-01 17:15:35', 'hojas de configuracion'),
+(23, '0FAF4F19-8EC8-5E80-08F2-79C7555D1B4E.pdf', 10, NULL, 7, '2019-04-01 17:48:16', ''),
+(24, '38151A23-0997-9DE1-96FA-D1C0BCC14302.pdf', 10, NULL, 7, '2019-04-01 17:48:16', ''),
+(25, 'B0C9699F-6281-5844-177C-ED0D233C2AF2.pdf', 10, NULL, 7, '2019-04-01 17:48:26', ''),
+(26, 'A349097C-79F8-E332-9784-CF70CC33D6F8.pdf', 10, NULL, 7, '2019-04-01 17:48:26', ''),
+(27, '7E46C85D-F571-1522-AA49-763818555E50.pdf', 10, NULL, 8, '2019-04-01 17:49:57', ''),
+(28, 'E8060DDA-FB1C-04F1-407D-F58C4F5DF620.pdf', 10, NULL, 8, '2019-04-01 17:50:26', ''),
+(29, '720E0019-2A0B-B11C-238C-6BAD03A87894.pdf', 10, NULL, 8, '2019-04-01 17:50:30', ''),
+(30, '8B7A32EB-342C-351D-2482-816B5D317835.pdf', 10, NULL, 8, '2019-04-01 17:50:48', 'aaaa'),
+(31, 'E2356071-534A-0503-7F5E-A06A3725780A.pdf', 11, 1, NULL, NULL, NULL),
+(32, '02603986-3A98-9760-8152-A847C32D2404.pdf', 11, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -328,12 +353,9 @@ CREATE TABLE `equipo` (
 --
 
 INSERT INTO `equipo` (`idEquipo`, `Serie`, `IsDisponible`, `idModelo`, `idCuenta`, `idEstadoEquipo`, `idAES`, `idEstado`, `idMunicipio`, `Contacto`, `Numero`) VALUES
-(1, 'EQUIPOSERIE1', 0, 1, 2, 3, 2, 1, 1, 'Kaps', '7221478569'),
-(2, 'EQUIPOSERIE2', 1, 1, 2, 1, 2, 1, 1, NULL, NULL),
-(3, 'EQUIPOSERIE3', 1, 1, 2, 1, 2, 1, 1, '', ''),
-(4, 'EQUIPOSERIE4', 1, 1, 2, 1, 2, 1, 1, 'Muegano', '7221874569'),
-(5, 'serie1', 1, 1, 2, 1, 2, 1, 1, 'muegano', '12345'),
-(6, 'serie1', 1, 1, 2, 2, 2, 1, 1, 'muegano', '12345');
+(10, '555553333333', 0, 3, 5, 2, 3, 15, 672, 'Julieta Trujol', '4545555555'),
+(11, '123456789', 1, 5, 3, 2, 3, 15, 670, 'alercia', '3838383'),
+(12, '345678', 1, 2, 3, 3, 3, 14, 537, 'jkgiou', '77777777777');
 
 -- --------------------------------------------------------
 
@@ -355,7 +377,9 @@ CREATE TABLE `equipoparte` (
 
 INSERT INTO `equipoparte` (`idEquipoParte`, `idEquipo`, `idParte`, `isActive`) VALUES
 (3, 2, 1, 1),
-(5, 1, 2, 1);
+(5, 1, 2, 1),
+(6, 8, 2, 1),
+(7, 10, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -2914,7 +2938,10 @@ CREATE TABLE `modelo` (
 --
 
 INSERT INTO `modelo` (`idModelo`, `Descripcion`) VALUES
-(1, 'ALFA ROMEO');
+(2, 'EPR5100'),
+(3, 'HP LaserJet Enterprise M506dn Printer'),
+(4, 'HP LASERJET ENTERPRISE M525F MFP'),
+(5, 'HP LaserJet Enterprise MFP M631dn Prntr');
 
 -- --------------------------------------------------------
 
@@ -5063,6 +5090,14 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `Nombre`, `PassWord`, `codTipoUsuario`) VALUES
+(1, 'alberto.mendoza.angeles@hp.com', 'spartan117', 1),
+(2, 'raul.marin@hp.com', 'chamcham', 2);
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -5206,13 +5241,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `aes`
 --
 ALTER TABLE `aes`
-  MODIFY `idAES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idAES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `caso`
 --
 ALTER TABLE `caso`
-  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `catestadoequipo`
@@ -5230,7 +5265,7 @@ ALTER TABLE `catestatuscaso`
 -- AUTO_INCREMENT de la tabla `catpartes`
 --
 ALTER TABLE `catpartes`
-  MODIFY `idPartes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPartes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `cattipokit`
@@ -5266,7 +5301,7 @@ ALTER TABLE `contacto`
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `idCuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `detallecobertura`
@@ -5278,19 +5313,19 @@ ALTER TABLE `detallecobertura`
 -- AUTO_INCREMENT de la tabla `documentos`
 --
 ALTER TABLE `documentos`
-  MODIFY `idDocumentos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idDocumentos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `idEquipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idEquipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `equipoparte`
 --
 ALTER TABLE `equipoparte`
-  MODIFY `idEquipoParte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idEquipoParte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `estados`
@@ -5314,7 +5349,7 @@ ALTER TABLE `kit`
 -- AUTO_INCREMENT de la tabla `modelo`
 --
 ALTER TABLE `modelo`
-  MODIFY `idModelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idModelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `municipios`
@@ -5332,7 +5367,7 @@ ALTER TABLE `tipodocumento`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
