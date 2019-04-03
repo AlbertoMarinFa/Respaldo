@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="row" id="divCasosHojasConfiguracion">
   <div class="col-md-12">
     <input type="text" class="form-control" id="Caso_ComentarioCaso">
   </div>
@@ -14,6 +14,9 @@
   <div class="col-md-12" id="Caso_ListaArchivosCargados">
 
   </div>
+</div>
+<div class="row">
+
 </div>
 <script type="text/javascript">
 function Equipo_Caso_UploadCartatoEquipo(idArchivo){

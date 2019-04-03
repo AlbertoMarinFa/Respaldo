@@ -19,7 +19,12 @@ $(document).ready(function(){
       datosrespuesta = obj;
       Session_Userid = datosrespuesta.idUsuario;
       Session_Codtipousuario = datosrespuesta.codTipoUsuario;
+      if(Session_Codtipousuario != "1"){
+        $("#Equipo_AddNewEquipo").remove();
+        $("#Menu_InsertaComponentes").remove();
+      }
     });
+    
   }
 });
 
