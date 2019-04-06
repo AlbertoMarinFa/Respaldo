@@ -11,6 +11,38 @@
   </div>
 </div>
 <script type="text/javascript">
+
+$(document).ready(function(){
+  TokenInicio = localStorage.getItem("TokenInicio");
+  if(!TokenInicio){
+    $("#frmloginSesion").show();
+    $("#wrapper").hide();
+  }else{
+    $("#wrapper").show();
+    $("#frmloginSesion").hide();
+    $("#divUserNamespan").text(TokenInicio);
+
+    $.post("PHP/GetDatoSession.php",
+    {Usuario: localStorage.getItem("TokenInicio")},
+    function(response){
+      var obj = JSON.parse(response);
+      datosrespuesta = obj;
+      Session_Userid = datosrespuesta.idUsuario;
+      Session_Codtipousuario = datosrespuesta.codTipoUsuario;
+      console.error("hola " +Session_Codtipousuario);
+      if(Session_Codtipousuario){
+        if(Session_Codtipousuario != "1"){
+          $("#Equipo_AddNewEquipo").remove();
+          $("#Menu_InsertaComponentes").remove();
+        }
+      }else{
+        $("#Equipo_AddNewEquipo").remove();
+        $("#Menu_InsertaComponentes").remove();
+      }
+    });
+    
+  }
+});
 Equipo_GetEquipo();
 
 $('#Componetes_Apartado_Equipo').click(function(){

@@ -19,7 +19,13 @@ $(document).ready(function(){
       datosrespuesta = obj;
       Session_Userid = datosrespuesta.idUsuario;
       Session_Codtipousuario = datosrespuesta.codTipoUsuario;
-      if(Session_Codtipousuario != "1"){
+      console.error("hola " +Session_Codtipousuario);
+      if(Session_Codtipousuario){
+        if(Session_Codtipousuario != "1"){
+          $("#Equipo_AddNewEquipo").remove();
+          $("#Menu_InsertaComponentes").remove();
+        }
+      }else{
         $("#Equipo_AddNewEquipo").remove();
         $("#Menu_InsertaComponentes").remove();
       }
@@ -58,6 +64,8 @@ function fnLoginPH(){
           $("#usuario").val("");
           $("#password").val("");
           $("#divUserNamespan").text(localStorage.getItem("TokenInicio"));
+          window.location.href = '#!';
+          location.reload();
 
           $.post("PHP/GetDatoSession.php",
           {Usuario: localStorage.getItem("TokenInicio")},

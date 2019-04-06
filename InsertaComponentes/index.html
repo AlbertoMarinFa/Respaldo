@@ -4,7 +4,7 @@
 }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid" id="frmComponetesValidados">
     <h1 class="text-primary text-center" style="font-size: 30px;">Componentes de Equipos</h1>
     <div class="col-md-12">
       <div class="col-md-6">
@@ -34,8 +34,36 @@
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
 //EnrutadoGeneral
+
+$(document).ready(function(){
+  TokenInicio = localStorage.getItem("TokenInicio");
+  if(!TokenInicio){
+    $("#frmloginSesion").show();
+    $("#wrapper").hide();
+  }else{
+    $("#wrapper").show();
+    $("#frmloginSesion").hide();
+    $("#divUserNamespan").text(TokenInicio);
+    
+    $.post("PHP/GetDatoSession.php",
+    {Usuario: localStorage.getItem("TokenInicio")},
+    function(response){
+      var obj = JSON.parse(response);
+      datosrespuesta = obj;
+      Session_Userid = datosrespuesta.idUsuario;
+      Session_Codtipousuario = datosrespuesta.codTipoUsuario;
+      if(Session_Codtipousuario){
+        if(Session_Codtipousuario != "1"){
+          $("#frmComponetesValidados").html("<div class='row text-center'><img src='img/denegado.jpg' /></div>");
+        }
+      }else{
+        $("#frmComponetesValidados").html("<div class='row text-center'><img src='img/denegado.jpg' /></div>");
+      }
+    });
+  }
+});
   $('#Componentes_KIT').click(function(){
     window.location.href = '#!Componentes/Equipo/KIT';
   });
