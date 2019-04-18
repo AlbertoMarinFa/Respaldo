@@ -6,6 +6,15 @@
   <div class="col-md-12 text-center">
     <span class="text-primary" style="font-size: 30px;">Lista de equipos</span>
   </div>
+  <div class="col-md-12">
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="fa fa-search"></i>
+        </span>
+        <input type="text" placeholder="Buscar Cobertura" class="form-control" id="Equipos_BuscaEquipos" />
+    </div>
+  </div>
+  <br/><br/>
   <div class="col-md-12" id="Equipo_DIVListaEquipo">
 
   </div>
@@ -13,6 +22,13 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+    $('#Equipos_BuscaEquipos').keyup(function(){
+      clearTimeout($.data(this, 'timer'));
+      var _Time = setTimeout(Equipo_GetEquipo, 2000);
+      $(this).data('timer', _Time);
+    });
+
+
   TokenInicio = localStorage.getItem("TokenInicio");
   if(!TokenInicio){
     $("#frmloginSesion").show();
@@ -40,7 +56,7 @@ $(document).ready(function(){
         $("#Menu_InsertaComponentes").remove();
       }
     });
-    
+
   }
 });
 Equipo_GetEquipo();
@@ -50,7 +66,7 @@ $('#Componetes_Apartado_Equipo').click(function(){
 });
 
 function Equipo_GetEquipo() {
-    $.get("EquiposRespaldo/PHP/ListaEquipos.php", function(respuesta) {
+    $.post("EquiposRespaldo/PHP/ListaEquipos.php",{Busqueda: $('#Equipos_BuscaEquipos').val()}, function(respuesta) {
         if (respuesta != '0') {
             var _HTMLtemp = "<table class=\"table table-hover\">" +
                 "<thead>" +

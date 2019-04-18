@@ -1,5 +1,9 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/Respaldo/PHP/Connection/dbconnect.php';
+$Busqueda = $_POST['Busqueda'];
+
+$QueryGen = $Busqueda != "" ? " WHERE modelo.Descripcion like '%$Busqueda%' or cuenta.NombreCuenta like '%$Busqueda%'" : "";
+
 $query1 = $DBcon->query("SELECT Serie,
   IFNULL(equipo.Contacto,'')Contacto ,IFNULL(equipo.Numero,'')Numero,
 (CASE
@@ -20,11 +24,11 @@ inner join municipios on municipios.idMunicipio = equipo.idMunicipio
 inner join aes on aes.idAES = equipo.idAES
 inner join modelo on modelo.idModelo = equipo.idModelo
 INNER join cuenta on cuenta.idCuenta = equipo.idCuenta
-inner join catestadoequipo on catestadoequipo.idEstadoEquipo = equipo.idEstadoEquipo;");
+inner join catestadoequipo on catestadoequipo.idEstadoEquipo = equipo.idEstadoEquipo $QueryGen;");
 $rowcount = mysqli_num_rows($query1);
 if($rowcount != 0){
   $count = 1;
-  while ($userRow1 = $query1->fetch_assoc()) {    
+  while ($userRow1 = $query1->fetch_assoc()) {
     $OnclicEstatus=$userRow1["idEstadoEquipo"]== 3 ? "data-toggle='tooltip' title='Partes faltantes' onclick=\"fncModalPartes('".$userRow1["idEquipo"]."')\" style='cursor:pointer;'" : "";
    echo "</tr>
   <td style='font-size: 13px'>".$count."</td>
@@ -47,6 +51,7 @@ if($rowcount != 0){
 else{
   echo '0';
 }
+
 $DBcon->close();
 
 ?>
