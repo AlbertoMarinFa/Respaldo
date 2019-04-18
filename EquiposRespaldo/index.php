@@ -11,7 +11,7 @@
         <span class="input-group-addon">
             <i class="fa fa-search"></i>
         </span>
-        <input type="text" placeholder="Buscar Cobertura" class="form-control" id="Equipos_BuscaEquipos" />
+        <input type="text" placeholder="Buscar Equipo" class="form-control" id="Equipos_BuscaEquipos" />
     </div>
   </div>
   <br/><br/>
